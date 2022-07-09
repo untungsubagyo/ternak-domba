@@ -20,9 +20,9 @@
                 <li <?php echo ($submenu == "mitra" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>pendaftaran/mitra">Pendaftaran Mitra</a>
                 </li>
-                <li <?php echo ($submenu == "mou_mitra" ? "class='active'" : ""); ?>>
+                <!-- <li <?php echo ($submenu == "mou_mitra" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>pendaftaran/mou_mitra">MOU Mitra</a>
-                </li>
+                </li> -->
             </ul>
         </li>
         <li <?php echo ($menu == "kandang" ? "class='active'" : ""); ?>>
@@ -31,13 +31,13 @@
                 <span>Kandang</span>
             </a>
             <ul class="ml-menu">
-                <li <?php echo ($submenu == "pengajuan_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pengajuan" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>kandang/pengajuan">Pengajuan Kandang</a>
                 </li>
-                <li <?php echo ($submenu == "pembangunan_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pembangunan" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>kandang/pembangunan">Pembangunan Kandang</a>
                 </li>
-                <li <?php echo ($submenu == "bast_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "bast" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>kandang/bast">BAST Kandang</a>
                 </li>
             </ul>
@@ -74,7 +74,7 @@
                 <li <?php echo ($submenu == "pembayaran_rhbd" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>transaksi/pembayaran_rhbd">Pembayaran RHBD</a>
                 </li>
-                <li <?php echo ($submenu == "pembangunan_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pembayaran_angsuran_kandang" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>transaksi/pembayaran_angsuran_kandang">Pembayaran Angsuran Kandang</a>
                 </li>
                 <li <?php echo ($submenu == "rugi_laba" ? "class='active'" : ""); ?>>
@@ -89,40 +89,40 @@
         <li <?php echo ($menu == "laporan" ? "class='active'" : ""); ?>>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">view_list</i>
-                <span>Laporan Populasi</span>
+                <span>Laporan</span>
             </a>
             <ul class="ml-menu">
-                <li <?php echo ($submenu == "laporan_data_mitra" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "mitra" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/mitra">Laporan Data Mitra</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "kandang" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/kandang">Laporan Data Kandang</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_domba" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "domba" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/domba">Laporan Data Domba</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_pakan" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pakan" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/pakan">Laporan Data Pakan</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_obat" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "obat" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/obat">Laporan Data Obat</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_limbah" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "limbah" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/limbah">Laporan Data Limbah</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_data_rhbd" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "rhbd" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/rhbd">Laporan Data RHBD</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_pembayaran_rhbd" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pembayaran_rhbd" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/pembayaran_rhbd">Laporan Pembayaran RHBD</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_pembayaran_angsuran_kandang" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "pembayaran_angsuran_kandang" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/pembayaran_angsuran_kandang">Laporan Pembayaran Angsuran Kandang</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_rugi_laba" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "rugi_laba" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/rugi_laba">Laporan Rugi Laba</a>
                 </li>
-                <li <?php echo ($submenu == "laporan_cash_flow" ? "class='active'" : ""); ?>>
+                <li <?php echo ($submenu == "cash_flow" ? "class='active'" : ""); ?>>
                     <a href="<?php echo base_url(); ?>laporan/cash_flow">Laporan Cash Flow</a>
                 </li>
             </ul>
