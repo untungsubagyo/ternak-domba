@@ -1,0 +1,3 @@
+<?php
+	$nama="Untung";
+?>

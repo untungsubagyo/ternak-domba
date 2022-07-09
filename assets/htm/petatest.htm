@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="css.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap-switch.css" rel="stylesheet" type="text/css">
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="components-rounded.css" rel="stylesheet" id="style_components" type="text/css">
+    <link href="plugins.css" rel="stylesheet" type="text/css">
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="layout.css" rel="stylesheet" type="text/css">
+    <link href="default.css" rel="stylesheet" type="text/css" id="style_color">
+    <link href="custom.css" rel="stylesheet" type="text/css">
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="stylesheet" href="petatest_data/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+    <script src="petatest_data/ol.js" type="text/javascript"></script>
+    <title>OpenLayers 3 example</title>
+</head>
+<body>
+<div>
+    Risiko Bencana:
+    <select id="pilihanBencana">
+        <option value="banjir_bandang">Banjir Bandang</option>
+        <option value="banjir">Banjir</option>
+        <option value="cuaca_ekstrim">Cuaca Ekstrim</option>
+        <option value="gelombang_pasang_dan_abrasi">Gelombang Pasang dan Abrasi</option>
+        <option value="gempabumi" selected="selected">Gempa Bumi</option>
+        <option value="gunungapi">Gunung Api</option>
+        <option value="karhutla">Kebakaran Hutan dan Lahan</option>
+        <option value="kegagalan_teknologi">Kegagalan Teknologi</option>
+        <option value="kekeringan">Kekeringan</option>
+        <option value="longsor">Longsor</option>
+        <option value="multibahaya">Multibahaya</option>
+        <option value="tsunami">Tsunami</option>
+        <option value="kepadatan_penduduk">Info Kepadatan Penduduk</option>
+    </select>
+                                                                                                                            <br>
+</div>
+<div id="map" class="map" style="margin-top: 20px"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas style="width: 100%; height: 100%;" class="ol-unselectable"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"></div></div></div>
+<script type="text/javascript">
+
+    // var url = "http://geoservice.bnpb.go.id:8399/arcgis/rest/services/Peta_Risiko_Bencana/Risiko_Bencana_Banjir/MapServer";
+    //10331840.239251, 622995.199142,   15953358.604596, -1072716.020923
+    function onchange(e) {
+        // window.location.reload();
+        window.location.href = "/petatest?long=109.6557000&lat=-7.6652470&x=12206816.68658&y=-855848.22488377&zoom=12&nama=&risiko=" + e.currentTarget.value;
+    }
+
+    document.getElementById('pilihanBencana').addEventListener('change', onchange);
+
+    var url = "http://inarisk.bnpb.go.id:6080/arcgis/rest/services/map_service/indeks_risiko_gempabumi/MapServer";
+    var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point([12206816.68658, -855848.22488377]),
+        name: '',
+        population: 4000,
+        rainfall: 500
+    });
+
+    var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+            anchor: [0.5, 46],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            src: 'https://openlayers.org/en/v3.18.2/examples/data/icon.png'
+        }))
+    });
+
+    iconFeature.setStyle(iconStyle);
+
+    var vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+    });
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }),
+            new ol.layer.Image({
+                source: new ol.source.ImageArcGISRest({
+                    ratio: 1,
+                    params: {},
+                    url: url
+                }),
+                opacity: 0.5
+            }),
+            new ol.layer.Vector({
+                source: vectorSource
+            })
+        ],
+        view: new ol.View({
+            //center: ol.proj.fromLonLat([37.41, 8.82]),
+            //center: ol.proj.fromLonLat([-2.58, 119.02]),
+            //center: [12993119.481375, -544912.283908],
+            center: [12206816.68658, -855848.22488377],
+            zoom: 12
+        })
+    });
+</script>
+
+</body></html>

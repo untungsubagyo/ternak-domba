@@ -1,0 +1,38 @@
+td.details-control {
+    background: url('<?php echo base_url();?>assets/images/bullet_toggle_plus.png') no-repeat center center !important;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('<?php echo base_url();?>assets/images/bullet_toggle_minus.png') no-repeat center center !important;
+}
+
+.list_foto {
+    display: none;
+}
+
+.form-sudut {
+    display: none;
+}
+
+.form-kerusakan {
+    display: none;
+}
+
+.form-konfirmasi {
+    display: none;
+}
+
+.icon_kelas img, img.icon_gambar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+img.icon_gambar {
+	float: left;
+	margin-right:10px;
+}
+
+.nama_obyek {
+	overflow: hidden;
+}
