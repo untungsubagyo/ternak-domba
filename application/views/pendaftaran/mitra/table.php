@@ -36,6 +36,7 @@
                                         <th style="text-align:center;width: 50px !important;">Jenis Kelamin</th>
                                         <th style="text-align:center;width: 50px !important;">No. HP</th>
                                         <th style="text-align:center;">Alamat</th>
+                                        <th style="text-align:center;">Status</th>
                                         <th>&nbsp;</th>
                                     </tr>
                                 </thead>

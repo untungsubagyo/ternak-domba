@@ -24,7 +24,13 @@ class Mitra_Model extends CI_Model{
 		 
 		$id= $data['mitra_id_edit'];
 		unset($data['mitra_id_edit']);
-		if($data['mitra_id_edit']){
+
+		if($data['password']){
+			$data['password']=md5($data['password']);
+		}else{
+			unset($data['password']);
+		}
+		if($id){
 			$this->db->where('mitra_id',$id);
 			$rs=$this->db->update('mitra',$data);
 		}else
