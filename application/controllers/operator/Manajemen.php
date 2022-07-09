@@ -16,7 +16,6 @@ class Manajemen extends CI_Controller{
 	}
 	
 	function index($id=""){
-		 
 		$p=$this->uri->segment('3');
 		$p=($p==0?"1":$p);
 		$data['p']        = $p;

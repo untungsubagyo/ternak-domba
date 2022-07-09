@@ -24,17 +24,17 @@
                     </div>
                     <div class="body">
                         <div class="tool" style='padding-bottom:10px;'>
-                            <button type="button" class="btn  bg-blue waves-effect" data-toggle="modal" data-target="#addModal">TAMBAH</button>
+                            <button type="button" class="btn  bg-blue waves-effect" id="btnTambah">TAMBAH</button>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover dataTable dataku ">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center;">Nomor Induk</th>
-                                        <th style="text-align:center;">Nama</th>
+                                        <th style="text-align:center;width: 50px !important;">Nomor Induk</th>
+                                        <th style="text-align:center;width: 200px !important;">Nama</th>
                                         <th style="text-align:center;">Tempat / Tanggal Lahir</th>
-                                        <th style="text-align:center;">Jenis Kelamin</th>
-                                        <th style="text-align:center;">No. HP</th>
+                                        <th style="text-align:center;width: 50px !important;">Jenis Kelamin</th>
+                                        <th style="text-align:center;width: 50px !important;">No. HP</th>
                                         <th style="text-align:center;">Alamat</th>
                                         <th>&nbsp;</th>
                                     </tr>
@@ -42,17 +42,7 @@
                                 <tbody id="show_data">
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th style="text-align:center;">Nomor Induk</th>
-                                        <th style="text-align:center;">Nama</th>
-                                        <th style="text-align:center;">Tempat / Tanggal Lahir</th>
-                                        <th style="text-align:center;">Jenis Kelamin</th>
-                                        <th style="text-align:center;">No. HP</th>
-                                        <th style="text-align:center;">Alamat</th>
-                                        <th style="width:120px;">&nbsp;</th>
-                                    </tr>
-                                </tfoot>
+                                
                             </table>
                         </div>
                     </div>
