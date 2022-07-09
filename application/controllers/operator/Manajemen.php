@@ -3,8 +3,7 @@
 class Manajemen extends CI_Controller{
 
 	function __construct(){
-		parent::__construct();
-		session_start();
+		parent::__construct(); 
 		if(!isset($_SESSION['user'])) redirect('login');
 		$this->load->model('user_model');
 		 
