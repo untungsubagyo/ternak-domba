@@ -31,6 +31,8 @@
 	
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url();?>assets/template/adminbsb/css/themes/all-themes.css" rel="stylesheet" />
+	
+    <link href="<?php echo base_url();?>assets/css/autosuggest/jquery.coolautosuggest.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">

@@ -116,4 +116,28 @@ class Mitra extends CI_Controller
 			echo json_encode($respon);
 		}
 	}
+	public function get_nama()
+	{
+		$nama = $this->uri->segment(4);
+		$this->db->like('nama',"$nama");
+		$rs=$this->db->get('mitra'); 
+		if ($rs->num_rows() > 0) {
+			foreach ($rs->result() as $row) {
+				// Store data in array
+				$arr[] = array( 
+					"mitra_id" => $row->mitra_id,
+					"data" => $row->nama,
+					"description" => $row->nama,
+				);
+			}
+		} else {
+			$arr[] = array(
+				 
+				"mitra_id" => "-",
+				"data" => "Mitra tidak ditemukan",
+				"description" => "Tidak ditemukan"
+			);
+		}
+		echo json_encode($arr);
+	}
 }

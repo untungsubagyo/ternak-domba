@@ -24,4 +24,5 @@
 
 <!-- Custom Js -->
 <script src="<?php echo base_url();?>assets/template/adminbsb/js/admin.js"></script>
+<script src="<?php echo base_url();?>assets/js/autosuggest/jquery.coolautosuggest.js"></script>
 
