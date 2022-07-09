@@ -117,11 +117,11 @@
 	</div>
 </div>
 
-<div class="modal fade" id="bangunModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="bastModal" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="smallModalLabel">Pembangunan Kandang</h4>
+				<h4 class="modal-title" id="smallModalLabel">BAST Kandang</h4>
 			</div>
 			<div class="modal-body">
 				<form>
@@ -134,9 +134,9 @@
 									<div class="form-group form-float">
 										<div class="form-line">
 											<label class="">Mitra</label>
-											<input type="hidden" id="pengajuan_id_bangun" name="pengajuan_id_bangun">
-											<input type="hidden" id="mitra_id_bangun" name="mitra_id_bangun">
-											<input type="text" id="nama_mitra_bangun" name="nama_mitra_bangun" class="form-control">
+											<input type="hidden" id="pembangunan_id" name="pembangunan_id">
+											<input type="hidden" id="mitra_id_bast" name="mitra_id_bast">
+											<input type="text" id="nama_mitra_bast" name="nama_mitra_bast" class="form-control">
 										</div>
 									</div>
 								</div>
@@ -144,7 +144,7 @@
 									<div class="form-group form-float">
 										<div class="form-line">
 											<label class="">Tanggal Pengajuan</label>
-											<input type="date" id="tanggal_pengajuan_bangun" name="tanggal_pengajuan_bangun" class="form-control" value='<?php echo date('Y-m-d');?>'>
+											<input type="date" id="tanggal_pengajuan_bast" name="tanggal_pengajuan_bast" class="form-control" value='<?php echo date('Y-m-d');?>'>
 										</div>
 									</div>
 								</div>
@@ -155,7 +155,7 @@
 							<div class="form-group form-float">
 								<div class="form-line">
 									<label class="">Alamat</label>
-									<input type="text" id="alamat_bangun" class="form-control">
+									<input type="text" id="alamat_bast" class="form-control">
 								</div>
 							</div>
 							<div class="row">
@@ -163,23 +163,23 @@
 									<div class="form-group form-float">
 										<div class="form-line">
 											<label class="">Luas Lahan</label>
-											<input type="text" id="luas_lahan_bangun" name="luas_lahan" class="form-control" value='0' style="text-align: right;">
+											<input type="text" id="luas_lahan_bast" name="luas_lahan" class="form-control" value='0' style="text-align: right;">
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group form-float">
 										<div class="form-line">
-											<label class="">Jumlah Pengajuan</label>
-											<input type="text" id="jumlah_pengajuan_bangun" name="jumlah_pengajuan" class="form-control" value='0' style="text-align: right;">
+											<label class="">Jumlah Kandang</label>
+											<input type="text" id="jumlah_kandang" name="jumlah_kandang" class="form-control" value='0' style="text-align: right;">
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group form-float">
 										<div class="form-line">
-											<label class="">Jumlah Rekomendasi</label>
-											<input type="text" id="jumlah_rekomendasi_bangun" name="jumlah_rekomendasi" class="form-control" value='0' style="text-align: right;">
+											<label class="">Biaya</label>
+											<input type="text" id="biaya" name="biaya" class="form-control" value='0' style="text-align: right;">
 										</div>
 									</div>
 								</div>
@@ -187,7 +187,7 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group form-float">
 										<div class="form-line">
 											<label class="">Tanggal Mulai Pembangunan</label>
@@ -195,7 +195,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group form-float">
 										<div class="form-line">
 											<label class="">Tanggal Selesai Pembangunan</label>
@@ -203,25 +203,16 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group form-float">
 										<div class="form-line">
-											<label class="">Jumlah Kandang</label>
-											<input type="text" id="jumlah_kandang" name="jumlah_kandang" class="form-control" value='0' style="text-align:right;">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Biaya</label>
-											<input type="text" id="biaya" name="biaya" class="form-control" value='0' style="text-align:right;">
+											<label class="">Tanggal BAST</label>
+											<input type="date" id="tanggal_bast" name="tanggal_bast" class="form-control" value='<?php echo date('Y-m-d');?>'>
 										</div>
 									</div>
 								</div>
 							</div>
+							 
 						</div>
 
 					</div>
@@ -230,7 +221,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-link waves-effect" id="btnsimpanbangun">SIMPAN</button>
+				<button type="button" class="btn btn-link waves-effect" id="btnsimpanbast">SIMPAN</button>
 				<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
 			</div>
 		</div>

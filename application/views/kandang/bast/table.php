@@ -24,20 +24,20 @@
                     </div>
                     <div class="body">
                         <div class="tool" style='padding-bottom:10px;'>
-                            <button type="button" class="btn  bg-blue waves-effect" id="btnTambah">TAMBAH</button>
+                            <!-- <button type="button" class="btn  bg-blue waves-effect" id="btnTambah">TAMBAH</button> -->
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover dataTable dataku ">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center;width: 50px !important;">Nomor Induk</th>
-                                        <th style="text-align:center;width: 200px !important;">Nama</th>
-                                        <th style="text-align:center;">Tempat / Tanggal Lahir</th>
-                                        <th style="text-align:center;width: 50px !important;">Jenis Kelamin</th>
-                                        <th style="text-align:center;width: 50px !important;">No. HP</th>
-                                        <th style="text-align:center;">Alamat</th>
-                                        <th style="text-align:center;">Status</th>
-                                        <th>&nbsp;</th>
+                                        <th style="text-align:center;width:100px !important">Tanggal BAST</th>
+                                        <th style="text-align:center;">Nama Mitra</th>
+                                        <th style="text-align:center;">Alamat Mitra</th>
+                                        <th style="text-align:center;width:100px !important">Luas Lahan</th>
+                                        <th style="text-align:center;width:100px !important">Jumlah Kandang</th>
+                                        <th style="text-align:center;width:100px !important">Biaya</th>
+                                        <!-- <th style="text-align:center;width:100px !important">Status</th> -->
+                                        <th style="width:100px !important">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody id="show_data">

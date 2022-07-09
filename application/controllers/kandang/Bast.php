@@ -7,7 +7,7 @@ class Bast extends CI_Controller
 		if (!isset($_SESSION['user'])) {
 			redirect("login");
 		}
-		$this->load->model(array('mitra_model','kandang_model'));
+		$this->load->model(array('mitra_model','pembangunankandang_model'));
 	}
 
 	public function index()
@@ -24,27 +24,27 @@ class Bast extends CI_Controller
 
 	public function get_all()
 	{
-		$data = $this->mitra_model->list_data();
+		$data = $this->pembangunankandang_model->list_data_bast();
 		echo json_encode($data);
 	}
 
 	function get_data()
 	{
 		$kode = $this->input->get('id');
-		$data = $this->mitra_model->get_data_by_id($kode);
+		$data = $this->pembangunankandang_model->get_data_by_id($kode);
 		echo json_encode($data);
 	}
 
 	public function save()
 	{
 		$data = $_POST;
-		$this->mitra_model->save($data);
+		$this->pembangunankandang_model->save($data);
 	}
 
 	public function delete()
 	{
 		$id = $this->input->post('id');
-		$data = $this->mitra_model->delete($id);
+		$data = $this->pembangunankandang_model->delete($id);
 		echo json_encode($data);
 	}
 
@@ -57,7 +57,7 @@ class Bast extends CI_Controller
 			$namaFile = time() . '_' . hexdec(uniqid()).".".$ext;
 
 			//folder upload
-			$targetDir = "assets/upload/bast/ktp/";
+			$targetDir = "assets/upload/pembangunan/ktp/";
 			$targetFilePath = $targetDir . $namaFile;
 
 			//membolehkan ekstensiOk file tertentu
@@ -91,7 +91,7 @@ class Bast extends CI_Controller
 			$namaFile = time() . '_' . hexdec(uniqid()).".".$ext;
 
 			//folder upload
-			$targetDir = "assets/upload/bast/sertifikat/";
+			$targetDir = "assets/upload/pembangunan/sertifikat/";
 			$targetFilePath = $targetDir . $namaFile;
 
 			//membolehkan ekstensiOk file tertentu

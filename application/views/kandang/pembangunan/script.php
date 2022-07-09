@@ -36,7 +36,7 @@
 							'<td style="text-align:center;">' +
 							'<div>' +
 							 
-							'<a href="javascript:;" class="btn btn-primary waves-effect item_bast" data="' + data[i].pengajuan_id + '"><i class="material-icons">build</i>BAST</a>' +
+							'<a href="javascript:;" class="btn btn-primary waves-effect item_bast" data="' + data[i].pembangunan_id + '"><i class="material-icons">build</i>BAST</a>' +
 							'</div>' +
 							'</td>' +
 							'</tr>';
@@ -78,26 +78,28 @@
 		});
 
 		//GET Bangun
-		$('#show_data').on('click', '.item_bangun', function() {
+		$('#show_data').on('click', '.item_bast', function() {
 			var id = $(this).attr('data');
 
 			$.ajax({
 				type: "GET",
-				url: "<?php echo base_url('kandang/pengajuan/get_data') ?>",
+				url: "<?php echo base_url('kandang/pembangunan/get_data') ?>",
 				dataType: "JSON",
 				data: {
 					id: id
 				},
 				success: function(data) {
-					$('#pengajuan_id_bangun').val(data.pengajuan_id); 
-					$('#nama_mitra_bangun').val(data.nama);
-					$('#mitra_id_bangun').val(data.mitra_id);
-					$('#alamat_bangun').val(data.alamat);
-					$('#luas_lahan_bangun').val(data.luas_lahan);
-					$('#jumlah_pengajuan_bangun').val(data.jumlah_pengajuan);
-					$('#jumlah_rekomendasi_bangun').val(data.jumlah_rekomendasi);
+					$('#pembangunan_id').val(data.pembangunan_id); 
+					$('#nama_mitra_bast').val(data.nama);
+					$('#mitra_id_bast').val(data.mitra_id);
+					$('#alamat_bast').val(data.alamat);
+					$('#luas_lahan_bast').val(data.luas_lahan);
+					$('#jumlah_kandang').val(data.jumlah_kandang);
+					$('#biaya').val(data.biaya);
+					$('#tanggal_mulai').val(data.tanggal_mulai);
+					$('#tanggal_selesai').val(data.tanggal_selesai);
 
-					$('#bangunModal').modal('show'); 
+					$('#bastModal').modal('show'); 
 				}
 			});
 			return false;
@@ -252,23 +254,25 @@
 		});
 		
 		//Simpan pengajuan
-		$('#btnsimpanbangun').on('click', function() { 
-			var pengajuan_id_bangun = $('#pengajuan_id_bangun').val();
+		$('#btnsimpanbast').on('click', function() { 
+			var pembangunan_id = $('#pembangunan_id').val();
 			 
 			var tanggal_mulai = $('#tanggal_mulai').val();
 			var tanggal_selesai = $('#tanggal_selesai').val();
+			var tanggal_bast = $('#tanggal_bast').val();
 			var jumlah_kandang = $('#jumlah_kandang').val();
 			var biaya = $('#biaya').val();
 			// var status = $('#status').val();
 			 
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url('kandang/pengajuan/save') ?>",
+				url: "<?php echo base_url('kandang/pembangunan/save_bast') ?>",
 				dataType: "JSON",
 				data: { 
-					pengajuan_id: pengajuan_id_bangun,
+					pembangunan_id: pembangunan_id,
 					tanggal_mulai: tanggal_mulai,
 					tanggal_selesai: tanggal_selesai,
+					tanggal_bast: tanggal_bast,
 					jumlah_kandang: jumlah_kandang,
 					biaya: biaya,
 					// status: status,
@@ -278,7 +282,7 @@
 					tampil_data();
 				}
 			});
-			$('#addModal').modal('toggle');
+			$('#bastModal').modal('toggle');
 			tampil_data();
 		});
 

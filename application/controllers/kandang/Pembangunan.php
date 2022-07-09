@@ -40,6 +40,11 @@ class Pembangunan extends CI_Controller
 		$data = $_POST;
 		$this->pembangunankandang_model->save($data);
 	}
+	public function save_bast()
+	{
+		$data = $_POST;
+		$this->pembangunankandang_model->save_bast($data);
+	}
 
 	public function delete()
 	{
