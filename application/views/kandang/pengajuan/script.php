@@ -35,7 +35,8 @@
 							'<td style="text-align:center;">' +
 							'<div>' +
 							'<a href="javascript:;" class="btn btn-warning waves-effect item_edit" data="' + data[i].pengajuan_id + '"><i class="material-icons">edit</i></a>' + ' ' +
-							'<a href="javascript:;" class="btn btn-danger waves-effect item_hapus" data="' + data[i].pengajuan_id + '"><i class="material-icons">delete</i></a>' +
+							'<a href="javascript:;" class="btn btn-danger waves-effect item_hapus" data="' + data[i].pengajuan_id + '"><i class="material-icons">delete</i></a>' + ' ' +
+							'<a href="javascript:;" class="btn btn-primary waves-effect item_bangun" data="' + data[i].pengajuan_id + '"><i class="material-icons">build</i>Bangun</a>' +
 							'</div>' +
 							'</td>' +
 							'</tr>';
@@ -61,6 +62,7 @@
 					$('#pengajuan_id').val(data.pengajuan_id); 
 					$('#nama_mitra').val(data.nama);
 					$('#mitra_id').val(data.mitra_id);
+					$('#alamat').val(data.alamat);
 					$('#luas_lahan').val(data.luas_lahan);
 					$('#jumlah_pengajuan').val(data.jumlah_pengajuan);
 					$('#jumlah_rekomendasi').val(data.jumlah_rekomendasi);
@@ -69,8 +71,33 @@
 					$('#bukti_ver_lahan').prop("src", "/assets/upload/pengajuan/ver_mitra/" + data.bukti_ver_lahan);
 					$('#bukti_ver_mitra').prop("src", "/assets/upload/pengajuan/ver_lahan/" + data.bukti_ver_mitra);
 
-					$('#addModal').modal('show');
-					$('#pengajuan_id').focus();
+					$('#addModal').modal('show'); 
+				}
+			});
+			return false;
+		});
+
+		//GET Bangun
+		$('#show_data').on('click', '.item_bangun', function() {
+			var id = $(this).attr('data');
+
+			$.ajax({
+				type: "GET",
+				url: "<?php echo base_url('kandang/pengajuan/get_data') ?>",
+				dataType: "JSON",
+				data: {
+					id: id
+				},
+				success: function(data) {
+					$('#pengajuan_id_bangun').val(data.pengajuan_id); 
+					$('#nama_mitra_bangun').val(data.nama);
+					$('#mitra_id_bangun').val(data.mitra_id);
+					$('#alamat_bangun').val(data.alamat);
+					$('#luas_lahan_bangun').val(data.luas_lahan);
+					$('#jumlah_pengajuan_bangun').val(data.jumlah_pengajuan);
+					$('#jumlah_rekomendasi_bangun').val(data.jumlah_rekomendasi);
+
+					$('#bangunModal').modal('show'); 
 				}
 			});
 			return false;
@@ -183,8 +210,10 @@
 			$('#hapusModal').modal('show');
 			$('[name="id_hapus"]').val(id);
 		});
+		
+		
 
-		//Simpan farm
+		//Simpan pengajuan
 		$('#btnsimpan').on('click', function() { 
 			var pengajuan_id = $('#pengajuan_id').val();
 			var mitra_id = $('#mitra_id').val();
@@ -219,6 +248,37 @@
 				}
 			});
 			$('#addModal').modal('toggle');
+			tampil_data();
+		});
+		
+		//Simpan pengajuan
+		$('#btnsimpanbangun').on('click', function() { 
+			var pengajuan_id_bangun = $('#pengajuan_id_bangun').val();
+			 
+			var tanggal_mulai = $('#tanggal_mulai').val();
+			var tanggal_selesai = $('#tanggal_selesai').val();
+			var jumlah_kandang = $('#jumlah_kandang').val();
+			var biaya = $('#biaya').val();
+			// var status = $('#status').val();
+			 
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url('kandang/pembangunan/save') ?>",
+				dataType: "JSON",
+				data: { 
+					pengajuan_id: pengajuan_id_bangun,
+					tanggal_mulai: tanggal_mulai,
+					tanggal_selesai: tanggal_selesai,
+					jumlah_kandang: jumlah_kandang,
+					biaya: biaya,
+					// status: status,
+				},
+				success: function(data) {
+
+					tampil_data();
+				}
+			});
+			$('#bangunModal').modal('toggle');
 			tampil_data();
 		});
 

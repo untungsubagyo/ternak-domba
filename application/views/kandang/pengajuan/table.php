@@ -37,7 +37,7 @@
                                         <th style="text-align:center;width:100px !important">Jumlah Pengajuan</th>
                                         <th style="text-align:center;width:100px !important">Jumlah Rekomendasi</th>
                                         <th style="text-align:center;width:100px !important">Status</th>
-                                        <th style="width:100px !important">&nbsp;</th>
+                                        <th style="width:200px !important">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody id="show_data">
