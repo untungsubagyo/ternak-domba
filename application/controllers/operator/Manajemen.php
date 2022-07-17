@@ -3,8 +3,7 @@
 class Manajemen extends CI_Controller{
 
 	function __construct(){
-		parent::__construct();
-		session_start();
+		parent::__construct(); 
 		if(!isset($_SESSION['user'])) redirect('login');
 		$this->load->model('user_model');
 		 
@@ -17,7 +16,6 @@ class Manajemen extends CI_Controller{
 	}
 	
 	function index($id=""){
-		 
 		$p=$this->uri->segment('3');
 		$p=($p==0?"1":$p);
 		$data['p']        = $p;

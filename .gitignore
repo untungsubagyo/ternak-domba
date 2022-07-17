@@ -2,12 +2,22 @@
 
 application/cache/*
 !application/cache/index.html
-!application/cache/.htaccess
 
 application/logs/*
 !application/logs/index.html
-!application/logs/.htaccess
 
+!application/*/.htaccess
+
+composer.lock
+tests/mocks/database/ci_test.sqlite
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+
+assets/upload/mitra/ktp/*
+assets/upload/mitra/sertifikat/*
 
 /vendor/
 
@@ -22,3 +32,5 @@ application/logs/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+/tests/tests/
+/tests/results/

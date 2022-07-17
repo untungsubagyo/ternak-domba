@@ -3,8 +3,7 @@
 class Login extends CI_Controller {
 	
 	function __construct(){
-		parent::__construct();
-		session_start();
+		parent::__construct(); 
 	}
 	
 	function index(){
