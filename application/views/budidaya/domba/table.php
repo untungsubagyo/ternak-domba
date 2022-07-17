@@ -30,13 +30,13 @@
                             <table class="table table-bordered table-striped table-hover dataTable dataku ">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center;width: 50px !important;">Nomor Induk</th>
-                                        <th style="text-align:center;width: 200px !important;">Nama</th>
-                                        <th style="text-align:center;">Tempat / Tanggal Lahir</th>
-                                        <th style="text-align:center;width: 50px !important;">Jenis Kelamin</th>
-                                        <th style="text-align:center;width: 50px !important;">No. HP</th>
-                                        <th style="text-align:center;">Alamat</th>
-                                        <th style="text-align:center;">Status</th>
+                                        <th style="text-align:center;">Id Domba</th>
+                                        <th style="text-align:center;">Tanggal Sheep In</th>
+                                        <th style="text-align:center;">Berat Saat Sheep In</th>
+                                        <th style="text-align:center;">Harga Saat Sheep In</th>
+                                        <th style="text-align:center;">Tanggal Panen</th>
+                                        <th style="text-align:center;">Berat Saat Panen</th>
+                                        <th style="text-align:center;">Harga Saat Panen</th>
                                         <th>&nbsp;</th>
                                     </tr>
                                 </thead>

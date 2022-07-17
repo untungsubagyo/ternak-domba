@@ -16,7 +16,7 @@
 		function tampil_data() {
 			$.ajax({
 				type: 'ajax',
-				url: '<?php echo base_url() ?>pendaftaran/mitra/get_all',
+				url: '<?php echo base_url() ?>budidaya/domba/get_all',
 				async: false,
 				dataType: 'json',
 				success: function(data) {
@@ -24,18 +24,18 @@
 					var i;
 					for (i = 0; i < data.length; i++) {
 						html += '<tr>' +
-							'<td style="text-align:center;">' + data[i].mitra_id + '</td>' +
-							'<td>' + data[i].nama + '</td>' +
-							'<td>' + data[i].tempat_lahir + "/" + data[i].tgl_lahir + '</td>' +
-							'<td>' + data[i].jkel + '</td>' +
-							'<td>' + data[i].no_hp + '</td>' +
-							'<td>' + data[i].alamat + '</td>' +
-							'<td>' + (data[i].status==0?"Belum Verifikasi":"Sudah Verifikasi") + '</td>' +
+							'<td style="text-align:center;">' + data[i].domba_id + '</td>' +
+							'<td style="text-align:center;">' + data[i].tanggal_masuk + '</td>' +
+							'<td style="text-align:right;">' + data[i].berat_saat_masuk.replace(".",",") + '</td>' +
+							'<td style="text-align:right;">' + formatRupiah(data[i].harga_saat_masuk,'Rp. ') + '</td>' +
+							'<td style="text-align:center;">' + data[i].tanggal_panen + '</td>' +
+							'<td style="text-align:right;">' + data[i].berat_saat_panen.replace(".",",") + '</td>' +
+							'<td style="text-align:right;">' + formatRupiah(data[i].harga_saat_panen,'Rp. ') + '</td>' +
 
 							'<td style="text-align:center;">' +
 							'<div>' +
-							'<a href="javascript:;" class="btn btn-warning waves-effect item_edit" data="' + data[i].mitra_id + '"><i class="material-icons">edit</i></a>' + ' ' +
-							'<a href="javascript:;" class="btn btn-danger waves-effect item_hapus" data="' + data[i].mitra_id + '"><i class="material-icons">delete</i></a>' +
+							'<a href="javascript:;" class="btn btn-warning waves-effect item_edit" data="' + data[i].domba_id + '"><i class="material-icons">edit</i></a>' + ' ' +
+							'<a href="javascript:;" class="btn btn-danger waves-effect item_hapus" data="' + data[i].domba_id + '"><i class="material-icons">delete</i></a>' +
 							'</div>' +
 							'</td>' +
 							'</tr>';
@@ -45,21 +45,36 @@
 
 			});
 		}
-
+		function formatRupiah(angka, prefix){
+			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			split   		= number_string.split(','),
+			sisa     		= split[0].length % 3,
+			rupiah     		= split[0].substr(0, sisa),
+			ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+ 
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if(ribuan){
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+ 
+			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+		}
 		//GET UPDATE
 		$('#show_data').on('click', '.item_edit', function() {
 			var id = $(this).attr('data');
 
 			$.ajax({
 				type: "GET",
-				url: "<?php echo base_url('pendaftaran/mitra/get_data') ?>",
+				url: "<?php echo base_url('budidaya/domba/get_data') ?>",
 				dataType: "JSON",
 				data: {
 					id: id
 				},
 				success: function(data) {
-					$('#mitra_id').val(data.mitra_id);
-					$('#mitra_id_edit').val(data.mitra_id);
+					$('#domba_id').val(data.domba_id);
+					$('#domba_id_edit').val(data.domba_id);
 					$('#nama').val(data.nama);
 					$('#tempat_lahir').val(data.tempat_lahir);
 					$('#tgl_lahir').val(data.tgl_lahir);
@@ -77,7 +92,7 @@
 
 
 					$('#addModal').modal('show');
-					$('#mitra_id').focus();
+					$('#domba_id').focus();
 				}
 			});
 			return false;
@@ -110,7 +125,7 @@
 					var xhr = new XMLHttpRequest();
 
 					//data file post yang untuk diupload
-					xhr.open('POST', '/pendaftaran/mitra/upload_ktp', true);
+					xhr.open('POST', '/budidaya/domba/upload_ktp', true);
 					xhr.send(data);
 					xhr.onload = function() {
 						//mendapatkan respon dan menunjukkan status upload
@@ -154,7 +169,7 @@
 					var xhr = new XMLHttpRequest();
 
 					//data file post yang untuk diupload
-					xhr.open('POST', '/pendaftaran/mitra/upload_sertifikat', true);
+					xhr.open('POST', '/budidaya/domba/upload_sertifikat', true);
 					xhr.send(data);
 					xhr.onload = function() {
 						//mendapatkan respon dan menunjukkan status upload
@@ -174,8 +189,8 @@
 		}
 
 		$('#btnTambah').on('click', function() {
-			$('#mitra_id_edit').val("");
-			$('#mitra_id').val("");
+			$('#domba_id_edit').val("");
+			$('#domba_id').val("");
 			$('#nama').val("");
 			$('[name="tempat_lahir"]').val("");
 			$('[name="tgl_lahir"]').val("");
@@ -197,8 +212,8 @@
 
 		//Simpan farm
 		$('#btnsimpan').on('click', function() {
-			var mitra_id_edit = $('#mitra_id_edit').val();
-			var mitra_id = $('#mitra_id').val();
+			var domba_id_edit = $('#domba_id_edit').val();
+			var domba_id = $('#domba_id').val();
 			var nama = $('#nama').val();
 			var tempat_lahir = $('#tempat_lahir').val();
 			var tgl_lahir = $('#tgl_lahir').val();
@@ -212,11 +227,11 @@
 			var foto_sertifikat = $('#foto_sertifikat').val();
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url('pendaftaran/mitra/save') ?>",
+				url: "<?php echo base_url('budidaya/domba/save') ?>",
 				dataType: "JSON",
 				data: {
-					mitra_id_edit: mitra_id_edit,
-					mitra_id: mitra_id,
+					domba_id_edit: domba_id_edit,
+					domba_id: domba_id,
 					nama: nama,
 					tempat_lahir: tempat_lahir,
 					tgl_lahir: tgl_lahir,
@@ -246,7 +261,7 @@
 
 			$.ajax({
 				type: "POST",
-				url: "<?php echo base_url('pendaftaran/mitra/delete') ?>",
+				url: "<?php echo base_url('budidaya/domba/delete') ?>",
 				dataType: "JSON",
 				data: {
 					id: id

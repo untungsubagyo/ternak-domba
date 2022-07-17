@@ -1,153 +1,64 @@
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg" role="document">
+	<div class="modal-dialog modal-small" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="smallModalLabel">TAMBAH MITRA</h4>
+				<h4 class="modal-title" id="smallModalLabel">TAMBAH DOMBA</h4>
 			</div>
 			<div class="modal-body">
 				<form>
 					<div class="row">
-						<div class="col-md-8">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-
-											<input type="hidden" id="mitra_id_edit">
-											<label class="">Nomor Induk Mitra</label>
-											<input type="text" id="mitra_id" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Nama</label>
-											<input type="text" id="nama" class="form-control">
-										</div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Tempat Lahir</label>
-											<input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Tanggal Lahir</label>
-											<input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control">
-										</div>
-									</div>
-								</div>
-							</div>
-
-
-
+						<div class="col-md-12">
 							<div class="form-group form-float">
 								<div class="form-line">
-									<label class="">Alamat</label>
-									<input type="text" id="alamat" class="form-control">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<label class="">Jenis Kelamin</label>
-										<select name="jkel" id="jkel" class="form-control">
-											<option value="">:: Pilih Jenis Kelamin ::</option>
-											<option value="L">Pria</option>
-											<option value="P">Wanita</option>
-										</select>
-									</div>
-								</div>
-
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Email</label>
-											<input type="text" id="email" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">No. HP</label>
-											<input type="text" id="no_hp" class="form-control">
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Username</label>
-											<input type="text" id="username" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group form-float">
-										<div class="form-line">
-											<label class="">Password</label>
-											<input type="password" id="password" class="form-control">
-										</div>
-									</div>
+									<input type="hidden" id="domba_id">
+									<label class="">Tanggal Sheep In</label>
+									<input type="date" id="tanggal_masuk" class="form-control">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group form-float">
 										<div class="form-line">
-											<label class="">Status</label>
-											<select name="status" id="status" class="form-control">
-												<option value="0">Belum Verifikasi</option>
-												<option value="1">Sudah Verifikasi</option>
-											</select>
+											<label class="">Berat saat Sheep In</label>
+											<input type="text" id="berat_saat_masuk" class="form-control">
 										</div>
 									</div>
 								</div>
-								 
+								<div class="col-md-6">
+									<div class="form-group form-float">
+										<div class="form-line">
+											<label class="">Harga saat Sheep In</label>
+											<input type="text" id="harga_saat_masuk" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-float">
+								<div class="form-line"> 
+									<label class="">Tanggal Panen</label>
+									<input type="date" id="tanggal_panen" class="form-control">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group form-float">
+										<div class="form-line">
+											<label class="">Berat saat Panen</label>
+											<input type="text" id="berat_saat_panen" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group form-float">
+										<div class="form-line">
+											<label class="">Harga saat Panen</label>
+											<input type="text" id="harga_saat_panen" class="form-control">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="col-md-12">
-								<div class="form-group form-float">
-									<div class="form-line">
-										<label class="">KTP</label>
-										<input type="file" id="ktp" class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<input type="hidden" name="foto_ktp" id="foto_ktp">
-								<img src="/assets/images/no_image.jpg" onerror="this.src='/assets/images/no_image.jpg'" id="img_ktp" alt="" style="width:200px;">
-							</div>
-							<div class="col-md-12">
-								<div class="form-group form-float">
-									<div class="form-line">
-										<label class="">Sertifikat Tanah</label>
-										<input type="file" id="sertifikat" class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12">
-							<input type="hidden" name="foto_sertifikat" id="foto_sertifikat">
-								<img src="/assets/images/no_image.jpg" onerror="this.src='/assets/images/no_image.jpg'" id="img_sertifikat" alt="" style="width:200px;">
-							</div>
-						</div>
+
 					</div>
 
 

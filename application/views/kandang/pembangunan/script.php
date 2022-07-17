@@ -36,7 +36,7 @@
 							'<td style="text-align:center;">' +
 							'<div>' +
 							 
-							'<a href="javascript:;" class="btn btn-primary waves-effect item_bast" data="' + data[i].pembangunan_id + '"><i class="material-icons">build</i>BAST</a>' +
+							'<a href="javascript:;" class="btn btn-primary waves-effect item_bast" data="' + data[i].kandang_id + '"><i class="material-icons">build</i>BAST</a>' +
 							'</div>' +
 							'</td>' +
 							'</tr>';
@@ -89,7 +89,7 @@
 					id: id
 				},
 				success: function(data) {
-					$('#pembangunan_id').val(data.pembangunan_id); 
+					$('#kandang_id').val(data.kandang_id); 
 					$('#nama_mitra_bast').val(data.nama);
 					$('#mitra_id_bast').val(data.mitra_id);
 					$('#alamat_bast').val(data.alamat);
@@ -255,7 +255,7 @@
 		
 		//Simpan pengajuan
 		$('#btnsimpanbast').on('click', function() { 
-			var pembangunan_id = $('#pembangunan_id').val();
+			var kandang_id = $('#kandang_id').val();
 			 
 			var tanggal_mulai = $('#tanggal_mulai').val();
 			var tanggal_selesai = $('#tanggal_selesai').val();
@@ -269,7 +269,7 @@
 				url: "<?php echo base_url('kandang/pembangunan/save_bast') ?>",
 				dataType: "JSON",
 				data: { 
-					pembangunan_id: pembangunan_id,
+					kandang_id: kandang_id,
 					tanggal_mulai: tanggal_mulai,
 					tanggal_selesai: tanggal_selesai,
 					tanggal_bast: tanggal_bast,

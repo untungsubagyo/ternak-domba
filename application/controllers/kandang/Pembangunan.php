@@ -7,7 +7,7 @@ class Pembangunan extends CI_Controller
 		if (!isset($_SESSION['user'])) {
 			redirect("login");
 		}
-		$this->load->model(array('mitra_model','pembangunankandang_model'));
+		$this->load->model(array('mitra_model','kandang_model'));
 	}
 
 	public function index()
@@ -24,32 +24,32 @@ class Pembangunan extends CI_Controller
 
 	public function get_all()
 	{
-		$data = $this->pembangunankandang_model->list_data();
+		$data = $this->kandang_model->list_data();
 		echo json_encode($data);
 	}
 
 	function get_data()
 	{
 		$kode = $this->input->get('id');
-		$data = $this->pembangunankandang_model->get_data_by_id($kode);
+		$data = $this->kandang_model->get_data_by_id($kode);
 		echo json_encode($data);
 	}
 
 	public function save()
 	{
 		$data = $_POST;
-		$this->pembangunankandang_model->save($data);
+		$this->kandang_model->save($data);
 	}
 	public function save_bast()
 	{
 		$data = $_POST;
-		$this->pembangunankandang_model->save_bast($data);
+		$this->kandang_model->save_bast($data);
 	}
 
 	public function delete()
 	{
 		$id = $this->input->post('id');
-		$data = $this->pembangunankandang_model->delete($id);
+		$data = $this->kandang_model->delete($id);
 		echo json_encode($data);
 	}
 
